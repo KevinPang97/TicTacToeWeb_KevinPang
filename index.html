@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic-Tac-Toe</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="tic-tac-toe.css" />
+  </head>
+
+  <body>
+    <!--Game header-->
+    <div class="container-fluid">
+      <!--Game header: Title-->
+      <div class="row text-center gameTitle">
+        <div class="col">
+          <h1>a Tic-Tac-Toe Game</h1>
+        </div>
+      </div>
+      <!--Game header: Current Player, Winner/Tie display, and restart button-->
+      <div class="row align-items-center progressBar">
+        <div class="col-3 align-items-center text-center">
+          <h4 style="display: inline">Current Player:</h4>
+        </div>
+        <div class="col-3 align-items-center text-center">
+          <h4 id="currentPlayer" style="display: inline">X</h4>
+        </div>
+        <div class="col align-items-center">
+          <h4 id="winner" style="display: inline"></h4>
+        </div>
+        <div class="col-2">
+          <button type="button" class="btn btn-warning" onclick="restartGame()">
+            Restart
+          </button>
+        </div>
+      </div>
+
+      <!--Gametile-->
+      <!--includes 3 rows, 3 columns each row-->
+      <!--each column should contain both X,O images hidden within a div frame-->
+      <!--each frame consists onClick for user input, onMouseOver and onMouseLeave for hovering animation-->
+      <div class="row gametile">
+        <div class="col text-center gamebox" id="box1">
+          <div
+            class="hoverFrame"
+            id="hoverFrame1"
+            onclick="gameUpdate(1)"
+            onmouseover="hoverAnimation(1)"
+            onmouseleave="hoverEnd(1)"
+          >
+            <img src="ttt_image/picX.png" id="box1X" alt="" />
+            <img src="ttt_image/picO.png" id="box1O" alt="" />
+          </div>
+        </div>
+        <div class="col text-center gamebox" id="box2">
+          <div
+            class="hoverFrame"
+            id="hoverFrame2"
+            onclick="gameUpdate(2)"
+            onmouseover="hoverAnimation(2)"
+            onmouseleave="hoverEnd(2)"
+          >
+            <img src="ttt_image/picX.png" id="box2X" alt="" />
+            <img src="ttt_image/picO.png" id="box2O" alt="" />
+          </div>
+        </div>
+        <div class="col text-center gamebox" id="box3">
+          <div
+            class="hoverFrame"
+            id="hoverFrame3"
+            onclick="gameUpdate(3)"
+            onmouseover="hoverAnimation(3)"
+            onmouseleave="hoverEnd(3)"
+          >
+            <img src="ttt_image/picX.png" id="box3X" alt="" />
+            <img src="ttt_image/picO.png" id="box3O" alt="" />
+          </div>
+        </div>
+      </div>
+      <div class="row gametile">
+        <div class="col text-center gamebox" id="box4">
+          <div
+            class="hoverFrame"
+            id="hoverFrame4"
+            onclick="gameUpdate(4)"
+            onmouseover="hoverAnimation(4)"
+            onmouseleave="hoverEnd(4)"
+          >
+            <img src="ttt_image/picX.png" id="box4X" alt="" />
+            <img src="ttt_image/picO.png" id="box4O" alt="" />
+          </div>
+        </div>
+        <div class="col text-center gamebox" id="box5">
+          <div
+            class="hoverFrame"
+            id="hoverFrame5"
+            onclick="gameUpdate(5)"
+            onmouseover="hoverAnimation(5)"
+            onmouseleave="hoverEnd(5)"
+          >
+            <img src="ttt_image/picX.png" id="box5X" alt="" />
+            <img src="ttt_image/picO.png" id="box5O" alt="" />
+          </div>
+        </div>
+        <div class="col text-center gamebox" id="box6">
+          <div
+            class="hoverFrame"
+            id="hoverFrame6"
+            onclick="gameUpdate(6)"
+            onmouseover="hoverAnimation(6)"
+            onmouseleave="hoverEnd(6)"
+          >
+            <img src="ttt_image/picX.png" id="box6X" alt="" />
+            <img src="ttt_image/picO.png" id="box6O" alt="" />
+          </div>
+        </div>
+      </div>
+      <div class="row gametile">
+        <div class="col text-center gamebox" id="box7">
+          <div
+            class="hoverFrame"
+            id="hoverFrame7"
+            onclick="gameUpdate(7)"
+            onmouseover="hoverAnimation(7)"
+            onmouseleave="hoverEnd(7)"
+          >
+            <img src="ttt_image/picX.png" id="box7X" alt="" />
+            <img src="ttt_image/picO.png" id="box7O" alt="" />
+          </div>
+        </div>
+        <div class="col text-center gamebox" id="box8">
+          <div
+            class="hoverFrame"
+            id="hoverFrame8"
+            onclick="gameUpdate(8)"
+            onmouseover="hoverAnimation(8)"
+            onmouseleave="hoverEnd(8)"
+          >
+            <img src="ttt_image/picX.png" id="box8X" alt="" />
+            <img src="ttt_image/picO.png" id="box8O" alt="" />
+          </div>
+        </div>
+        <div class="col text-center gamebox" id="box9">
+          <div
+            class="hoverFrame"
+            id="hoverFrame9"
+            onclick="gameUpdate(9)"
+            onmouseover="hoverAnimation(9)"
+            onmouseleave="hoverEnd(9)"
+          >
+            <img src="ttt_image/picX.png" id="box9X" alt="" />
+            <img src="ttt_image/picO.png" id="box9O" alt="" />
+          </div>
+        </div>
+      </div>
+
+      <!--Hidden section to record user inputs and other flags for js code-->
+      <div class="row" hidden>
+        <div class="col">X's input:</div>
+        <div class="col" id="Xinput"></div>
+        <div class="col">O's input:</div>
+        <div class="col" id="Oinput"></div>
+        <div class="col" id="winnerIdentified">n</div>
+      </div>
+    </div>
+
+    <!--JS scripts-->
+    <script src="tic-tac-toe_web.js"></script>
+  </body>
+</html>
